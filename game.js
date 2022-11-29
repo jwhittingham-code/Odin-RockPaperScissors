@@ -49,9 +49,34 @@ let getPlayerChoice = () => {
     //assign choice
 } //end getPlayerChoice
 
-console.log(getPlayerChoice());
+
+
 //compare the two - function
+function declareWinner(comChoice = getComChoice(), playerchoice = getPlayerChoice()) {
+    console.log(comChoice);
+    console.log(playerchoice);
+
+    switch (true){
+        case comChoice === playerchoice:
+            return `it's a tie! you both chose ${playerchoice}`;
+            break;
+        case comChoice == 'rock' && playerchoice == 'scissors':
+            return `you lose, ${comChoice} beats ${playerchoice}`;
+            break;
+        case comChoice == 'paper' && playerchoice == 'rock':
+            return `you lose, ${comChoice} beats ${playerchoice}`;
+            break;
+        case comChoice == 'scissors' && playerchoice == 'paper':
+            return `you lose, ${comChoice} beats ${playerchoice}`;
+            break;
+        default:
+        return `YOU WIN !!! ${playerchoice} beats ${comChoice}`;
+    }
+
     // using a switch statement compare choices
-//decide winner - game funcion
-    // based on above comparison
-//call above functions in a new function called "game"
+//decide winner based on above comparison
+} // end of declareWinner function
+
+console.log(declareWinner());
+
+//call above functions in a new function called "game" - game has several rounds
