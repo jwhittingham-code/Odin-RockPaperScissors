@@ -1,7 +1,20 @@
 //Scissors Paper Rock
 // Randomly generate computers choice - function
+const getComChoice = () => {
+    let choice = Math.floor(Math.random()*3);
     //set variable with function that generates random number between 0 - 2
-    //set choice based on number generated
+
+    switch (choice) {
+        case 0: return 'rock';
+        break;
+        case 1: return 'paper';
+        break;
+        case 2: return 'scissors';
+        break;
+        default: return 'something went wrong';
+    }//set choice based on number generated
+}
+
 // get players choice - function
     //get input
     //set it to lower case
