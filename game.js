@@ -16,10 +16,21 @@ const getComChoice = () => {
 }
 
 // get players choice - function
+let getPlayerChoice = prompt('choose rock,paper or scissors');
+console.log(getPlayerChoice);
     //get input
+function checkPlayerInput (){
+    choice = getPlayerChoice.toLowerCase;
     //set it to lower case
+
+    while (choice !== 'rock'){
+        choice = prompt('try again');
+    }
+        return choice;
     //check it matches one of the three choices
     //assign choice
+}
+console.log(checkPlayerInput());
 //compare the two - function
     // using a switch statement compare choices
 //decide winner - game funcion
