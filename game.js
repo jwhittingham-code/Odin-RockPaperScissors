@@ -49,10 +49,12 @@ let getPlayerChoice = () => {
     //assign choice
 } //end getPlayerChoice
 
-
+// variables to track wins
+let playerWins = 0
+let comWins = 0
 
 //compare the two - function
-function declareWinner(comChoice = getComChoice(), playerchoice = getPlayerChoice()) {
+function playRound(comChoice = getComChoice(), playerchoice = getPlayerChoice()) {
     console.log(comChoice);
     console.log(playerchoice);
 
@@ -61,22 +63,41 @@ function declareWinner(comChoice = getComChoice(), playerchoice = getPlayerChoic
             return `it's a tie! you both chose ${playerchoice}`;
             break;
         case comChoice == 'rock' && playerchoice == 'scissors':
+            comWins++;
             return `you lose, ${comChoice} beats ${playerchoice}`;
             break;
         case comChoice == 'paper' && playerchoice == 'rock':
+            comWins++;
             return `you lose, ${comChoice} beats ${playerchoice}`;
             break;
         case comChoice == 'scissors' && playerchoice == 'paper':
+            comWins++;
             return `you lose, ${comChoice} beats ${playerchoice}`;
             break;
         default:
+            playerWins++;
         return `YOU WIN !!! ${playerchoice} beats ${comChoice}`;
     }
 
     // using a switch statement compare choices
 //decide winner based on above comparison
-} // end of declareWinner function
+} // end of playRound function
 
-console.log(declareWinner());
+function game() {
+    
+    for (let rounds = 1; rounds < 5; rounds++){
+        console.log(`Round ${rounds}`);
+        console.log(playRound());
+    }
+    if (playerWins == comWins){
+        return ' Some how you tied'
+    } else if(playerWins > comWins){
+        return `YOU WON THE GAME, with ${playerWins} Wins`;
+    } else {
+        return `You lost, the Computer wont ${comWins} Wins`;
+    }
+}
+
+console.log(game());
 
 //call above functions in a new function called "game" - game has several rounds
