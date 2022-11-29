@@ -16,21 +16,40 @@ const getComChoice = () => {
 }
 
 // get players choice - function
-let getPlayerChoice = prompt('choose rock,paper or scissors');
-console.log(getPlayerChoice);
+let getPlayerChoice = () => { 
+    
+    let choice = prompt('choose rock,paper or scissors').toLowerCase();
+    if(choice == 'scissor'){
+        choice = 'scissors';
+    }
+    let goodChoice = false;
     //get input
-function checkPlayerInput (){
-    choice = getPlayerChoice.toLowerCase;
     //set it to lower case
 
-    while (choice !== 'rock'){
-        choice = prompt('try again');
+    while (!goodChoice){
+        switch(choice) {
+            case 'rock':
+                goodChoice = true;
+                break;
+            case 'paper':
+                goodChoice = true;
+                break;
+            case 'scissor':
+                choice = 'scissors';
+            case 'scissors':
+                goodChoice = true;
+                break;
+            default:
+                choice = prompt('try again, rock, paper or scissors').toLowerCase();
+        }
+        
     }
         return choice;
     //check it matches one of the three choices
     //assign choice
-}
-console.log(checkPlayerInput());
+} //end getPlayerChoice
+
+console.log(getPlayerChoice());
 //compare the two - function
     // using a switch statement compare choices
 //decide winner - game funcion
